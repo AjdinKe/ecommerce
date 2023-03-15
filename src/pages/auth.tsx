@@ -20,8 +20,29 @@ const Auth = ({users}: InferGetStaticPropsType<typeof getStaticProps>) => {
     
     let user:any = null;
     const router = useRouter()
-    let [userLoggedIn, setUserLoggedIn] = useState(true);console.log("base value: " + userLoggedIn)
+    let [userLoggedIn, setUserLoggedIn] = useState(true);
     let url = "/"
+    
+    const submitLogin = () => {
+        for(const e of users) {
+            user=e;
+            console.log(user)
+            console.log(user.password)
+            console.log("asd")
+            if((document.getElementById('username') as HTMLInputElement).value == user.username && (document.getElementById('password') as HTMLInputElement).value == user.password) {
+                console.log("Username is " + user.username)
+                console.log("Password is " + user.password)
+                setUserLoggedIn(true)
+                router.push(url)
+                break;
+            }
+            else {
+                setUserLoggedIn(false)
+                console.log("Invalid credentials!")                                
+            }
+        }
+    }
+    
     return (
         <>
         <Head>
@@ -29,30 +50,20 @@ const Auth = ({users}: InferGetStaticPropsType<typeof getStaticProps>) => {
         </Head> 
             <div className={styles.login}>
                 
-                <form action="post" className={styles.loginForm} >
+                <form className={styles.loginForm} onKeyDown={(e) => {
+                    if (e.key === "Enter")
+                    {
+                        submitLogin()
+                    }
+                    }} >
+
                     <h2>Login</h2>
                     <p> <input type="text" id="username" placeholder="Username" title="Enter a username" required className={styles.loginUserField} /> </p>
                     <p> <input type="password" id="password" placeholder="Password" title="Password must be 6 characters long" required minLength={6} className={styles.loginPassField} /> </p>
                     <button type="button" className={styles.loginButton} onClick={() => {
-                       for(const e of users) {
-                            user=e;
-                            console.log(user)
-                            console.log(user.password)
-                            console.log("asd")
-                            if((document.getElementById('username') as HTMLInputElement).value == user.username && (document.getElementById('password') as HTMLInputElement).value == user.password) {
-                                console.log("Username is " + user.username)
-                                console.log("Password is " + user.password)
-                                setUserLoggedIn(true)
-                                router.push(url)
-                                break;
-                            }
-                            else {
-                                setUserLoggedIn(false)
-                                console.log("Invalid credentials!")                                
-                            }
-                        }
-                        
+                        submitLogin()
                     }} >LOGIN</button>
+
                     <p className={styles.loginMessage} >Not registered? <a href="" style={{ ["textDecoration" as any]: "underline" }} >Create an account</a> </p>
                     { userLoggedIn==false ? <p className={styles.invalid} >Invalid credentials!</p> : <p></p> }
                 </form>
