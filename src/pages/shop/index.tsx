@@ -62,7 +62,7 @@ const Shop = ({ products }: InferGetStaticPropsType<typeof getStaticProps>) => {
                   
                     <ul className="dropdown-list">
                       <li className="dropdown-item"> <Link href="/category/electronics" >Electronics</Link> </li>
-                      <li className="dropdown-item"> <Link href="/category/jewelry" >Jewelry</Link> </li>
+                      <li className="dropdown-item"> <Link href="/category/jewelery" >Jewelry</Link> </li>
                       <li className="dropdown-item"> <Link href="/category/men's%20clothing" >Men's clothing</Link> </li>
                       <li className="dropdown-item"> <Link href="/category/women's%20clothing" >Women's clothing</Link> </li>
                     </ul>
