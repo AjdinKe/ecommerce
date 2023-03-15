@@ -1,0 +1,69 @@
+.login {
+    /* background-color: white;
+    margin:30px auto; */
+
+    background-color: #fff;
+    margin: 30px auto;
+    text-align: center;
+    width: 50%;
+    border-radius: 3px;
+    padding-top: 20px;
+    box-shadow: 1px 3px 5px rgba(116, 116, 116, 0.1);
+}
+.loginForm {
+    color: #333
+    
+}
+.loginForm h2 {
+    margin: 30px 0;
+    font-size: 40px;
+}
+.loginForm input:-webkit-autofill {
+    background-color: transparent;
+}
+.loginUserField,
+.loginPassField {
+    width: 60%;
+    font-size: 16px;
+    padding: 15px 10px;
+    margin: 0;
+    /* color: #8a8b8e; */
+    border: 1px solid #c2c0ca;
+    border-radius: 3px;
+    outline: 0;
+}
+.loginUserField:focus,
+.loginPassField:focus {
+    box-shadow: 1px 1px 5px rgba(0,0,0, 0.1);
+    border-color: #777;
+}
+.loginUserField:invalid:focus,
+.loginPassField:invalid:focus {
+    border-color: red;
+    background: transparent;
+}
+.loginButton {
+    width: 50%;
+    padding: 15px 10px;
+    background-color: #f2f2f2;
+    border: none;
+    font-size: 18px;
+    border-radius: 3px;
+    font-weight: 600;
+    cursor: pointer; border-color: #777;
+}
+.loginButton:hover {
+    background-color: #b4b4b44d;
+    /* filter: opacity(70%); */
+}
+.loginMessage {
+    font-size: 14px;
+    padding-bottom: 50px;
+}
+.invalid {
+    color: red;
+    padding-bottom: 50px;
+}
+
+
+
